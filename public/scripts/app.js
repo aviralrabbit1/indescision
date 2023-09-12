@@ -2,8 +2,8 @@
 
 console.log('App is running');
 var app = {
-  title: 'Notes App',
-  subtitle: 'Create short notes',
+  title: 'Indecision App',
+  subtitle: 'Create short decision list to choose from',
   options: []
 };
 function getTitle(title) {
@@ -27,11 +27,18 @@ var removeALL = function removeALL() {
   app.options = [];
   render();
 };
+var makeDecision = function makeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  var option = app.options[randomNum];
+  console.log(option);
+};
 var appRoot = document.getElementById('app');
 var render = function render() {
   var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
     id: "title"
-  }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("button", {
+  }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? /*#__PURE__*/React.createElement("p", null, "Here are your ", app.options.length, " option(s):") : 'No options', " "), /*#__PURE__*/React.createElement("button", {
+    onClick: makeDecision
+  }, "What should i do?"), /*#__PURE__*/React.createElement("button", {
     onClick: removeALL
   }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, app.options.map(function (option) {
     return /*#__PURE__*/React.createElement("li", {

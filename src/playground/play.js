@@ -1,8 +1,8 @@
 console.log('App is running');
 
 var app = {
-    title: 'Notes App',
-    subtitle: 'Create short notes',
+    title: 'Indecision App',
+    subtitle: 'Create short decision list to choose from',
     options: [],
 }
 
@@ -33,6 +33,12 @@ const removeALL = () => {
     render();
 }
 
+const makeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    console.log(option);
+}
+
 var appRoot = document.getElementById('app');
 
 const render = () => {
@@ -40,8 +46,8 @@ const render = () => {
         <>
             <h1 id="title">{getTitle(app.title)}</h1>
             {app.subtitle && getSubtitle(app.subtitle)}
-            <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
-            <p>Number of options: {app.options.length}</p>
+            <p>{app.options.length > 0 ? <p>Here are your {app.options.length} option(s):</p> : 'No options'} </p>
+            <button onClick={makeDecision}>What should i do?</button>
             <button onClick={removeALL}>Remove All</button>
             <ol>
                 {
