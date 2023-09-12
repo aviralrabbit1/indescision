@@ -2,7 +2,8 @@ console.log('App is running');
 
 var app = {
     title: 'Notes App',
-    subtitle: 'Create short notes'
+    subtitle: 'Create short notes',
+    options: ['first', 'second'],
 }
 
 function getTitle(title) {
@@ -17,7 +18,8 @@ function getSubtitle(subtitle) {
 var appTemplate = (
     <>
         <h1 id="title">{getTitle(app.title)}</h1>
-        {getSubtitle(app.subtitle)}
+        {app.subtitle && getSubtitle(app.subtitle)}
+        <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
         <ol>
             <li>Item 1</li>
             <li>Item 2</li>
@@ -27,7 +29,7 @@ var appTemplate = (
 
 var user = {
     name : 'Aviral Verma',
-    Age : 26,
+    age : 26,
     location : 'Mirzapur'
 }
 
@@ -38,9 +40,9 @@ var template = (
         <h3>Some info</h3>
         <ol>
             <li>{user.name.toUpperCase()}</li>
-            <li>age: {user.Age}</li>
+            {(user.age && user.age >=18 ) && <li>age: {user.age}</li>}
             <li>Software Developer</li>
-            <li>Location: {user.location}</li>
+            <li>Location: {user.location?user.location:'Banglore'}</li>
         </ol>
     </>
 );
