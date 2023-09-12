@@ -36,5 +36,5 @@ yarn add --dev @babel/core @babel/cli @babel/preset-env
 
 To create a continuously babel transpiled file, run
 ```sh
-./node_modules/@babel src/app.js --out-dir public --presets=@babel/preset-env,@babel/react --watch
+npx babel src/app.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react
 ```
