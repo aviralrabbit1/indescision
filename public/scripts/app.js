@@ -20,21 +20,24 @@ var onFormSubmit = function onFormSubmit(e) {
   if (option) {
     app.options.push(option);
     e.target.elements.option.value = '';
+    render();
   }
 };
-var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
-  id: "title"
-}, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")), /*#__PURE__*/React.createElement("form", {
-  onSubmit: onFormSubmit
-}, /*#__PURE__*/React.createElement("input", {
-  type: "text",
-  name: "option",
-  placeholder: "Add a note"
-}), /*#__PURE__*/React.createElement("button", null, "Add Option")));
 var appRoot = document.getElementById('app');
+var render = function render() {
+  var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
+    id: "title"
+  }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")), /*#__PURE__*/React.createElement("form", {
+    onSubmit: onFormSubmit
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    name: "option",
+    placeholder: "Add a note"
+  }), /*#__PURE__*/React.createElement("button", null, "Add Option")));
+  ReactDOM.render(appTemplate, appRoot);
+};
 
 // issue #3
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
-
-ReactDOM.render(appTemplate, appRoot);
+render();

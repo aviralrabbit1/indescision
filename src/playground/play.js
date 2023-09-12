@@ -24,30 +24,33 @@ const onFormSubmit = (e) => {
     if(option) {
         app.options.push(option);
         e.target.elements.option.value = '';
+        render();
     }
 }
 
-var appTemplate = (
-    <>
-        <h1 id="title">{getTitle(app.title)}</h1>
-        {app.subtitle && getSubtitle(app.subtitle)}
-        <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
-        <p>Number of options: {app.options.length}</p>
-        <ol>
-            <li>Item 1</li>
-            <li>Item 2</li>
-        </ol>
-        <form onSubmit={onFormSubmit}>
-            <input type="text" name="option" placeholder="Add a note" />
-            <button>Add Option</button>
-        </form>
-    </>
-);
-
 var appRoot = document.getElementById('app');
+
+const render = () => {
+    var appTemplate = (
+        <>
+            <h1 id="title">{getTitle(app.title)}</h1>
+            {app.subtitle && getSubtitle(app.subtitle)}
+            <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
+            <p>Number of options: {app.options.length}</p>
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option" placeholder="Add a note" />
+                <button>Add Option</button>
+            </form>
+        </>
+    );
+    ReactDOM.render(appTemplate, appRoot);
+}
 
 // issue #3
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
-
-ReactDOM.render(appTemplate, appRoot);
+render();
