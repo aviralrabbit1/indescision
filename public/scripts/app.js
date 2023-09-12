@@ -4,7 +4,7 @@ console.log('App is running');
 var app = {
   title: 'Notes App',
   subtitle: 'Create short notes',
-  options: ['first', 'second']
+  options: []
 };
 function getTitle(title) {
   if (title) return title;else return 'Notes';
@@ -23,11 +23,17 @@ var onFormSubmit = function onFormSubmit(e) {
     render();
   }
 };
+var removeALL = function removeALL() {
+  app.options = [];
+  render();
+};
 var appRoot = document.getElementById('app');
 var render = function render() {
   var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
     id: "title"
-  }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")), /*#__PURE__*/React.createElement("form", {
+  }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("button", {
+    onClick: removeALL
+  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")), /*#__PURE__*/React.createElement("form", {
     onSubmit: onFormSubmit
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",

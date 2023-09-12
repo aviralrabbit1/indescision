@@ -3,7 +3,7 @@ console.log('App is running');
 var app = {
     title: 'Notes App',
     subtitle: 'Create short notes',
-    options: ['first', 'second'],
+    options: [],
 }
 
 function getTitle(title) {
@@ -28,6 +28,11 @@ const onFormSubmit = (e) => {
     }
 }
 
+const removeALL = () => {
+    app.options = [];
+    render();
+}
+
 var appRoot = document.getElementById('app');
 
 const render = () => {
@@ -37,6 +42,7 @@ const render = () => {
             {app.subtitle && getSubtitle(app.subtitle)}
             <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
             <p>Number of options: {app.options.length}</p>
+            <button onClick={removeALL}>Remove All</button>
             <ol>
                 <li>Item 1</li>
                 <li>Item 2</li>
