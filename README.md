@@ -19,3 +19,12 @@ yarn global add babel-cli
 ```
 yarn init
 ```
+
+### Babel can convert JSX syntax and this preset can be installed with
+```
+yarn add --dev @babel/preset-react
+```
+### @babel/preset-env allows to use the latest JavaScript without needing to micromanage which syntax transforms and browser polyfills are needed by the target environment(s).
+```
+yarn add --dev @babel/preset-env
+```
