@@ -31,9 +31,11 @@ let count = 0;
 const template = (
     <div>
         <h2>Count: {count} </h2>
-        <button id="incrementor">+1</button>
+        <button id="incrementor" className="button">+1</button>
     </div>
 )
+
+console.log(template);
 
 var appRoot = document.getElementById('app');
 
