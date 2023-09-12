@@ -1,0 +1,8 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aviralrabbit1/indescision.git",
+  "author": "Aviral Verma <aviral.robin@gmail.com>",
+  "license": "MIT"
+}

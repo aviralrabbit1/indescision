@@ -9,3 +9,13 @@ or
 ```
 npm install -g live-server
 ```
+
+### Setting up babel locally,
+```
+yarn global add babel-cli
+```
+
+### Initalize a package.json with -
+```
+yarn init
+```
