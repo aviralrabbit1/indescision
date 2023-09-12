@@ -43,3 +43,7 @@ var renderCounterApp = function renderCounterApp() {
 // console.log(template);
 
 renderCounterApp();
+
+// issue #3
+// import { createRoot } from 'react-dom/client';
+// const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
