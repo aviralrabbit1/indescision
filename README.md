@@ -31,10 +31,16 @@ yarn add --dev @babel/preset-env
 
 we can also install them together like- 
 ```sh
-yarn add --dev @babel/core @babel/cli @babel/preset-env
+yarn add --dev @babel/core @babel/cli @babel/preset-env @babel/preset-react
 ```
 
 To create a continuously babel transpiled file, run
 ```sh
 npx babel src/app.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react
+```
+### To solve issue #3, TODO! 
+
+following [React 18 update](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)
+```sh
+yarn add react react-dom
 ```
