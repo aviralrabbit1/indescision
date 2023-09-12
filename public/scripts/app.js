@@ -1,14 +1,16 @@
 "use strict";
 
 console.log('App is running');
-var username = 'Aviral Verma';
-var userAge = 26;
-var userLocation = 'Mirzapur';
+var user = {
+  name: 'Aviral Verma',
+  Age: 26,
+  location: 'Mirzapur'
+};
 
 // JSX javascript XML
 var template = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
   id: "someID"
-}, "JSX is rendering, Change is now reflected"), /*#__PURE__*/React.createElement("h3", null, "Some info"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, username.toUpperCase()), /*#__PURE__*/React.createElement("li", null, "age: ", userAge), /*#__PURE__*/React.createElement("li", null, "Software Developer"), /*#__PURE__*/React.createElement("li", null, "Location: ", userLocation)));
+}, "JSX is rendering, Change is now reflected"), /*#__PURE__*/React.createElement("h3", null, "Some info"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, user.name.toUpperCase()), /*#__PURE__*/React.createElement("li", null, "age: ", user.Age), /*#__PURE__*/React.createElement("li", null, "Software Developer"), /*#__PURE__*/React.createElement("li", null, "Location: ", user.location)));
 var appRoot = document.getElementById('app');
 
 // issue #3

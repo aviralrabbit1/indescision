@@ -1,8 +1,10 @@
 console.log('App is running');
 
-var username = 'Aviral Verma';
-var userAge = 26;
-var userLocation = 'Mirzapur';
+var user = {
+    name : 'Aviral Verma',
+    Age : 26,
+    location : 'Mirzapur'
+}
 
 // JSX javascript XML
 var template = (
@@ -10,10 +12,10 @@ var template = (
         <h1 id="someID">JSX is rendering, Change is now reflected</h1>
         <h3>Some info</h3>
         <ol>
-            <li>{username.toUpperCase()}</li>
-            <li>age: {userAge}</li>
+            <li>{user.name.toUpperCase()}</li>
+            <li>age: {user.Age}</li>
             <li>Software Developer</li>
-            <li>Location: {userLocation}</li>
+            <li>Location: {user.location}</li>
         </ol>
     </>
 );
