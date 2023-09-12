@@ -9,11 +9,15 @@ function getTitle(title) {
     if(title) return title;
     else return 'Notes';    
 }
+function getSubtitle(subtitle) {
+    if(subtitle) return <h3>{subtitle}</h3>;
+    else return undefined; // similar to not having an else statement    
+}
 
 var appTemplate = (
     <>
         <h1 id="title">{getTitle(app.title)}</h1>
-        <h3>{app.subtitle}</h3>
+        {getSubtitle(app.subtitle)}
         <ol>
             <li>Item 1</li>
             <li>Item 2</li>

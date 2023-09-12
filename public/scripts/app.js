@@ -8,9 +8,13 @@ var app = {
 function getTitle(title) {
   if (title) return title;else return 'Notes';
 }
+function getSubtitle(subtitle) {
+  if (subtitle) return /*#__PURE__*/React.createElement("h3", null, subtitle);else return undefined; // similar to not having an else statement    
+}
+
 var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
   id: "title"
-}, getTitle(app.title)), /*#__PURE__*/React.createElement("h3", null, app.subtitle), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
+}, getTitle(app.title)), getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
 var user = {
   name: 'Aviral Verma',
   Age: 26,
