@@ -33,7 +33,11 @@ var render = function render() {
     id: "title"
   }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("p", null, "Number of options: ", app.options.length), /*#__PURE__*/React.createElement("button", {
     onClick: removeALL
-  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")), /*#__PURE__*/React.createElement("form", {
+  }, "Remove All"), /*#__PURE__*/React.createElement("ol", null, app.options.map(function (option) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: option
+    }, option);
+  })), /*#__PURE__*/React.createElement("form", {
     onSubmit: onFormSubmit
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
