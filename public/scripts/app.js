@@ -37,6 +37,7 @@ var render = function render() {
   var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
     id: "title"
   }, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? /*#__PURE__*/React.createElement("p", null, "Here are your ", app.options.length, " option(s):") : 'No options', " "), /*#__PURE__*/React.createElement("button", {
+    disabled: app.options.length === 0,
     onClick: makeDecision
   }, "What should i do?"), /*#__PURE__*/React.createElement("button", {
     onClick: removeALL

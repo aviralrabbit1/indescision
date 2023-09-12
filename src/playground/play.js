@@ -47,7 +47,7 @@ const render = () => {
             <h1 id="title">{getTitle(app.title)}</h1>
             {app.subtitle && getSubtitle(app.subtitle)}
             <p>{app.options.length > 0 ? <p>Here are your {app.options.length} option(s):</p> : 'No options'} </p>
-            <button onClick={makeDecision}>What should i do?</button>
+            <button disabled={app.options.length === 0} onClick={makeDecision}>What should i do?</button>
             <button onClick={removeALL}>Remove All</button>
             <ol>
                 {
