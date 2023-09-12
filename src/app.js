@@ -5,9 +5,14 @@ var app = {
     subtitle: 'Create short notes'
 }
 
+function getTitle(title) {
+    if(title) return title;
+    else return 'Notes';    
+}
+
 var appTemplate = (
     <>
-        <h1 id="title">{app.title}</h1>
+        <h1 id="title">{getTitle(app.title)}</h1>
         <h3>{app.subtitle}</h3>
         <ol>
             <li>Item 1</li>

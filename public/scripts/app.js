@@ -5,9 +5,12 @@ var app = {
   title: 'Notes App',
   subtitle: 'Create short notes'
 };
+function getTitle(title) {
+  if (title) return title;else return 'Notes';
+}
 var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
   id: "title"
-}, app.title), /*#__PURE__*/React.createElement("h3", null, app.subtitle), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
+}, getTitle(app.title)), /*#__PURE__*/React.createElement("h3", null, app.subtitle), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
 var user = {
   name: 'Aviral Verma',
   Age: 26,
