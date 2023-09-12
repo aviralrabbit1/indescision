@@ -28,10 +28,18 @@ var appTemplate = (
 );
 
 let count = 0;
+const addOne = () => console.log('addOne');
+const minuOne = () => console.log('minuOne');
+const reset = () => console.log('reset');
 const template = (
     <div>
         <h2>Count: {count} </h2>
-        <button id="incrementor" className="button">+1</button>
+        <button id="decrementor" className="button" onClick={minuOne}>-1</button>
+        <button id="reset" className="button" onClick={reset}>reset</button>
+        <button id="incrementor" className="button" onClick={addOne}>+1</button>
+        {/* <button id="inline" className="button" onClick={() =>{
+            console.log('inline function')
+        }}>inline</button> */}
     </div>
 )
 
