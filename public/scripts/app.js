@@ -1,9 +1,11 @@
 "use strict";
 
 console.log('App is running');
-var template = /*#__PURE__*/React.createElement("h1", {
+
+// JSX javascript XML
+var template = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
   id: "someID"
-}, "JSX is rendering, Change is now reflected");
+}, "JSX is rendering, Change is now reflected"), /*#__PURE__*/React.createElement("h3", null, "Some info"), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Aviral Verma"), /*#__PURE__*/React.createElement("li", null, "Software Developer")));
 var appRoot = document.getElementById('app');
 
 // issue #3

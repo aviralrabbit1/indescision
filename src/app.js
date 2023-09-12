@@ -1,6 +1,16 @@
 console.log('App is running');
 
-var template = <h1 id="someID">JSX is rendering, Change is now reflected</h1>;
+// JSX javascript XML
+var template = (
+    <>
+        <h1 id="someID">JSX is rendering, Change is now reflected</h1>
+        <h3>Some info</h3>
+        <ol>
+            <li>Aviral Verma</li>
+            <li>Software Developer</li>
+        </ol>
+    </>
+);
 
 var appRoot = document.getElementById('app');
 
