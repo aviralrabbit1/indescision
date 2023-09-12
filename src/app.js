@@ -1,5 +1,21 @@
 console.log('App is running');
 
+var app = {
+    title: 'Notes App',
+    subtitle: 'Create short notes'
+}
+
+var appTemplate = (
+    <>
+        <h1 id="title">{app.title}</h1>
+        <h3>{app.subtitle}</h3>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ol>
+    </>
+);
+
 var user = {
     name : 'Aviral Verma',
     Age : 26,
@@ -27,4 +43,4 @@ var appRoot = document.getElementById('app');
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(appTemplate, appRoot);

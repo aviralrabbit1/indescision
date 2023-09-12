@@ -1,6 +1,13 @@
 "use strict";
 
 console.log('App is running');
+var app = {
+  title: 'Notes App',
+  subtitle: 'Create short notes'
+};
+var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
+  id: "title"
+}, app.title), /*#__PURE__*/React.createElement("h3", null, app.subtitle), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
 var user = {
   name: 'Aviral Verma',
   Age: 26,
@@ -17,4 +24,4 @@ var appRoot = document.getElementById('app');
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(appTemplate, appRoot);
