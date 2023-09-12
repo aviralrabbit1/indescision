@@ -6,44 +6,44 @@ var app = {
   subtitle: 'Create short notes',
   options: ['first', 'second']
 };
-function getTitle(title) {
-  if (title) return title;else return 'Notes';
-}
-function getSubtitle(subtitle) {
-  if (subtitle) return /*#__PURE__*/React.createElement("h3", null, subtitle);else return undefined; // similar to not having an else statement    
-}
-
-var appTemplate = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
-  id: "title"
-}, getTitle(app.title)), app.subtitle && getSubtitle(app.subtitle), /*#__PURE__*/React.createElement("p", null, app.options.length > 0 ? 'Here are the notes:' : 'No notes', " "), /*#__PURE__*/React.createElement("ol", null, /*#__PURE__*/React.createElement("li", null, "Item 1"), /*#__PURE__*/React.createElement("li", null, "Item 2")));
 var count = 0;
 var addOne = function addOne() {
-  return console.log('addOne');
+  count++;
+  renderCounterApp();
+  console.log('addOne');
 };
 var minuOne = function minuOne() {
-  return console.log('minuOne');
+  count--;
+  renderCounterApp();
+  console.log('minuOne');
 };
 var reset = function reset() {
-  return console.log('reset');
+  count = 0;
+  renderCounterApp();
+  console.log('reset');
 };
-var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Count: ", count, " "), /*#__PURE__*/React.createElement("button", {
-  id: "decrementor",
-  className: "button",
-  onClick: minuOne
-}, "-1"), /*#__PURE__*/React.createElement("button", {
-  id: "reset",
-  className: "button",
-  onClick: reset
-}, "reset"), /*#__PURE__*/React.createElement("button", {
-  id: "incrementor",
-  className: "button",
-  onClick: addOne
-}, "+1"));
-console.log(template);
 var appRoot = document.getElementById('app');
+var renderCounterApp = function renderCounterApp() {
+  var template = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Count: ", count, " "), /*#__PURE__*/React.createElement("button", {
+    id: "decrementor",
+    className: "button",
+    onClick: minuOne
+  }, "-1"), /*#__PURE__*/React.createElement("button", {
+    id: "reset",
+    className: "button",
+    onClick: reset
+  }, "reset"), /*#__PURE__*/React.createElement("button", {
+    id: "incrementor",
+    className: "button",
+    onClick: addOne
+  }, "+1"));
+  ReactDOM.render(template, appRoot);
+};
+
+// console.log(template);
+
+renderCounterApp();
 
 // issue #3
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
-
-ReactDOM.render(template, appRoot);

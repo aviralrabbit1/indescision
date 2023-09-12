@@ -6,32 +6,28 @@ var app = {
     options: ['first', 'second'],
 }
 
-function getTitle(title) {
-    if(title) return title;
-    else return 'Notes';    
-}
-function getSubtitle(subtitle) {
-    if(subtitle) return <h3>{subtitle}</h3>;
-    else return undefined; // similar to not having an else statement    
-}
-
-var appTemplate = (
-    <>
-        <h1 id="title">{getTitle(app.title)}</h1>
-        {app.subtitle && getSubtitle(app.subtitle)}
-        <p>{app.options.length > 0 ? 'Here are the notes:': 'No notes'} </p>
-        <ol>
-            <li>Item 1</li>
-            <li>Item 2</li>
-        </ol>
-    </>
-);
-
 let count = 0;
-const addOne = () => console.log('addOne');
-const minuOne = () => console.log('minuOne');
-const reset = () => console.log('reset');
-const template = (
+const addOne = () => {
+    count++;
+    renderCounterApp();
+    console.log('addOne');
+}
+const minuOne = () => {
+    count--;
+    renderCounterApp();
+    console.log('minuOne');
+}
+const reset = () => {
+    count = 0;
+    renderCounterApp();
+    console.log('reset');
+}
+
+var appRoot = document.getElementById('app');
+
+const renderCounterApp = () => {
+
+    const template = (
     <div>
         <h2>Count: {count} </h2>
         <button id="decrementor" className="button" onClick={minuOne}>-1</button>
@@ -41,14 +37,15 @@ const template = (
             console.log('inline function')
         }}>inline</button> */}
     </div>
-)
+    )
 
-console.log(template);
+    ReactDOM.render(template, appRoot);
+}
 
-var appRoot = document.getElementById('app');
+// console.log(template);
+
+renderCounterApp();
 
 // issue #3
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
-
-ReactDOM.render(template, appRoot);
