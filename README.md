@@ -38,6 +38,16 @@ To create a continuously babel transpiled file, run
 ```sh
 npx babel src/app.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react
 ```
+or to transpile every file of a directory to another,
+```sh
+npx babel src --watch --out-dir public/scripts --presets=@babel/preset-env,@babel/preset-react
+```
+
+#### To access the playground file,
+```sh
+npx babel src/playground/play.js --watch --out-file public/scripts/playground/app.js --presets=@babel/preset-env,@babel/preset-react
+```
+
 ### To solve issue #3, TODO! 
 
 following [React 18 update](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis)

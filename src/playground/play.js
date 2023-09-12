@@ -27,26 +27,13 @@ var appTemplate = (
     </>
 );
 
-var user = {
-    name : 'Aviral Verma',
-    age : 26,
-    location : 'Mirzapur'
-}
-
-// JSX javascript XML
-var template = (
-    <>
-        <h1 id="someID">JSX is rendering, Change is now reflected</h1>
-        <h3>Some info</h3>
-        <ol>
-            <li>{user.name.toUpperCase()}</li>
-            {(user.age && user.age >=18 ) && <li>age: {user.age}</li>}
-            <li>Software Developer</li>
-            <li>Location: {user.location?user.location:'Banglore'}</li>
-        </ol>
-    </>
-);
-
+let count = 0;
+const template = (
+    <div>
+        <h2>Count: {count} </h2>
+        <button id="incrementor">+1</button>
+    </div>
+)
 
 var appRoot = document.getElementById('app');
 
@@ -54,4 +41,4 @@ var appRoot = document.getElementById('app');
 // import { createRoot } from 'react-dom/client';
 // const root = createRoot(appRoot); // createRoot(container!) if you use TypeScript
 
-ReactDOM.render(appTemplate, appRoot);
+ReactDOM.render(template, appRoot);
