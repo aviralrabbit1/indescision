@@ -23,10 +23,55 @@ var Header = /*#__PURE__*/function (_React$Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("p", null, "Header Component");
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Indecision App"), /*#__PURE__*/React.createElement("h3", null, "Create short decision list to choose from"));
     }
   }]);
   return Header;
 }(React.Component);
-var jsx = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Title"), /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Header, null));
+var Action = /*#__PURE__*/function (_React$Component2) {
+  _inherits(Action, _React$Component2);
+  var _super2 = _createSuper(Action);
+  function Action() {
+    _classCallCheck(this, Action);
+    return _super2.apply(this, arguments);
+  }
+  _createClass(Action, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "What should i do?"));
+    }
+  }]);
+  return Action;
+}(React.Component);
+var AddOptions = /*#__PURE__*/function (_React$Component3) {
+  _inherits(AddOptions, _React$Component3);
+  var _super3 = _createSuper(AddOptions);
+  function AddOptions() {
+    _classCallCheck(this, AddOptions);
+    return _super3.apply(this, arguments);
+  }
+  _createClass(AddOptions, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "Add Options"));
+    }
+  }]);
+  return AddOptions;
+}(React.Component);
+var Options = /*#__PURE__*/function (_React$Component4) {
+  _inherits(Options, _React$Component4);
+  var _super4 = _createSuper(Options);
+  function Options() {
+    _classCallCheck(this, Options);
+    return _super4.apply(this, arguments);
+  }
+  _createClass(Options, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Option"));
+    }
+  }]);
+  return Options;
+}(React.Component);
+var jsx = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, null), /*#__PURE__*/React.createElement(AddOptions, null));
 ReactDOM.render(jsx, document.getElementById('app'));
