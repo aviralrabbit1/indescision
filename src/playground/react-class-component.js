@@ -61,8 +61,13 @@ class AddOptions extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props){
+        super(props);
+        this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
+    }
     removeAll(){
-        alert('removeAll')
+        console.log(this.props.options); // here, this doesn't refer to class instance
+        alert('removeAll');
     }
     render() {
         return (

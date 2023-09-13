@@ -106,13 +106,17 @@ var AddOptions = /*#__PURE__*/function (_React$Component4) {
 var Options = /*#__PURE__*/function (_React$Component5) {
   _inherits(Options, _React$Component5);
   var _super5 = _createSuper(Options);
-  function Options() {
+  function Options(props) {
+    var _this;
     _classCallCheck(this, Options);
-    return _super5.apply(this, arguments);
+    _this = _super5.call(this, props);
+    _this.removeAll = _this.removeAll.bind(_assertThisInitialized(_this)); // resetting the context here instead of inline
+    return _this;
   }
   _createClass(Options, [{
     key: "removeAll",
     value: function removeAll() {
+      console.log(this.props.options); // here, this doesn't refer to class instance
       alert('removeAll');
     }
   }, {
