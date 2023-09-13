@@ -31,7 +31,7 @@ var Counter = /*#__PURE__*/function (_React$Component) {
       console.log('addOne');
     });
     _defineProperty(_assertThisInitialized(_this), "minuOne", function () {
-      _this.setState(function () {
+      _this.setState(function (prevState) {
         return {
           count: prevState.count - 1
         };

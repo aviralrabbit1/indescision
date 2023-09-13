@@ -18,7 +18,7 @@ class Counter extends React.Component {
         console.log('addOne');
     }
     minuOne = () => {
-        this.setState(() => {
+        this.setState((prevState) => {
             return {
                 count: prevState.count - 1
             }
