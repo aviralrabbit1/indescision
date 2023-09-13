@@ -23,9 +23,9 @@ var Counter = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     // var count = 0;
     _defineProperty(_assertThisInitialized(_this), "addOne", function () {
-      _this.setState(function () {
+      _this.setState(function (prevState) {
         return {
-          count: _this.state.count + 1
+          count: prevState.count + 1
         };
       });
       console.log('addOne');
@@ -33,7 +33,7 @@ var Counter = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "minuOne", function () {
       _this.setState(function () {
         return {
-          count: _this.state.count - 1
+          count: prevState.count - 1
         };
       });
       console.log('minuOne');
