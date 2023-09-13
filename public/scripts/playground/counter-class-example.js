@@ -23,26 +23,41 @@ var Counter = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     // var count = 0;
     _defineProperty(_assertThisInitialized(_this), "addOne", function () {
-      // count++;
+      _this.setState(function () {
+        return {
+          count: _this.state.count + 1
+        };
+      });
       console.log('addOne');
     });
     _defineProperty(_assertThisInitialized(_this), "minuOne", function () {
-      // count--;
+      _this.setState(function () {
+        return {
+          count: _this.state.count - 1
+        };
+      });
       console.log('minuOne');
     });
     _defineProperty(_assertThisInitialized(_this), "reset", function () {
-      // count = 0;
+      _this.setState(function () {
+        return {
+          count: 0
+        };
+      });
       console.log('reset');
     });
     _this.addOne = _this.addOne.bind(_assertThisInitialized(_this));
     _this.minuOne = _this.minuOne.bind(_assertThisInitialized(_this));
     _this.reset = _this.reset.bind(_assertThisInitialized(_this));
+    _this.state = {
+      count: 0
+    };
     return _this;
   }
   _createClass(Counter, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Count: "), /*#__PURE__*/React.createElement("button", {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Count: ", this.state.count, " "), /*#__PURE__*/React.createElement("button", {
         onClick: this.minuOne
       }, "-1"), /*#__PURE__*/React.createElement("button", {
         onClick: this.reset
