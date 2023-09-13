@@ -25,10 +25,13 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var title = 'Indecision app';
       var subTitle = 'Create short decision list to choose from';
+      var options = ['first', 'second'];
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
         title: title,
         subTitle: subTitle
-      }), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, null), /*#__PURE__*/React.createElement(AddOptions, null));
+      }), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, {
+        options: options
+      }), /*#__PURE__*/React.createElement(AddOptions, null));
     }
   }]);
   return Indecision;
@@ -89,7 +92,14 @@ var Options = /*#__PURE__*/function (_React$Component5) {
   _createClass(Options, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Your Options:"), /*#__PURE__*/React.createElement(Option, null));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "You have ", this.props.options.length > 0 ? this.props.options.length : 'no', " options:"),
+      // this.props.options.map((option, index) => <p key={option}>{option} </p>)
+      this.props.options.map(function (option, index) {
+        return /*#__PURE__*/React.createElement(Option, {
+          key: option,
+          optionText: option
+        });
+      }), /*#__PURE__*/React.createElement(Option, null));
     }
   }]);
   return Options;
@@ -104,7 +114,7 @@ var Option = /*#__PURE__*/function (_React$Component6) {
   _createClass(Option, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Option"));
+      return /*#__PURE__*/React.createElement("div", null, this.props.optionText);
     }
   }]);
   return Option;
