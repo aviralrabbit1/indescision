@@ -60,9 +60,16 @@ var Action = /*#__PURE__*/function (_React$Component3) {
     return _super3.apply(this, arguments);
   }
   _createClass(Action, [{
+    key: "handleClick",
+    value: function handleClick() {
+      alert('handleClick');
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "What should i do?"));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+        onClick: this.handleClick
+      }, "What should i do?"));
     }
   }]);
   return Action;
@@ -75,9 +82,23 @@ var AddOptions = /*#__PURE__*/function (_React$Component4) {
     return _super4.apply(this, arguments);
   }
   _createClass(AddOptions, [{
+    key: "addOption",
+    value: function addOption(e) {
+      e.preventDefault();
+      var option = e.target.elements.option.value.trim();
+      if (option) {
+        alert('option');
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", null, "Add Options"));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
+        onSubmit: this.addOption
+      }, /*#__PURE__*/React.createElement("input", {
+        type: "text",
+        name: "option"
+      }), /*#__PURE__*/React.createElement("button", null, "Add Options")));
     }
   }]);
   return AddOptions;
@@ -90,16 +111,23 @@ var Options = /*#__PURE__*/function (_React$Component5) {
     return _super5.apply(this, arguments);
   }
   _createClass(Options, [{
+    key: "removeAll",
+    value: function removeAll() {
+      alert('removeAll');
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "You have ", this.props.options.length > 0 ? this.props.options.length : 'no', " options:"),
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+        onClick: this.removeAll
+      }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", this.props.options.length > 0 ? this.props.options.length : 'no', " options:"),
       // this.props.options.map((option, index) => <p key={option}>{option} </p>)
       this.props.options.map(function (option, index) {
         return /*#__PURE__*/React.createElement(Option, {
           key: option,
           optionText: option
         });
-      }), /*#__PURE__*/React.createElement(Option, null));
+      }));
     }
   }]);
   return Options;
@@ -119,5 +147,4 @@ var Option = /*#__PURE__*/function (_React$Component6) {
   }]);
   return Option;
 }(React.Component);
-var jsx = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(Action, null), /*#__PURE__*/React.createElement(Options, null), /*#__PURE__*/React.createElement(AddOptions, null));
 ReactDOM.render( /*#__PURE__*/React.createElement(Indecision, null), document.getElementById('app'));
