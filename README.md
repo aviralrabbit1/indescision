@@ -43,9 +43,9 @@ or to transpile every file of a directory to another,
 npx babel src --watch --out-dir public/scripts --presets=@babel/preset-env,@babel/preset-react
 ```
 
-#### To access the playground file,
+#### To access any specific file,
 ```sh
-npx babel src/playground/play.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react
+npx babel path/to/input-file.js --watch --out-file path/to/output-file.js --presets=@babel/preset-env,@babel/preset-react
 ```
 
 ### To solve issue #3, TODO! 
