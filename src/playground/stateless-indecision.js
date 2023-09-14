@@ -99,37 +99,25 @@ class AddOptions extends React.Component {
     }
 }
 
-class Options extends React.Component {
-    // constructor(props){
-    //     super(props);
-    //     this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
-    // }
-    // removeAll(){
-    //     console.log(this.props.options); // here, this doesn't refer to class instance
-    //     alert('removeAll');
-    // }
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.deleteOptions} >Remove All</button>
-                <p>You have {this.props.options.length > 0 ? this.props.options.length : 'no'} options:</p>
-                {
-                    // this.props.options.map((option, index) => <p key={option}>{option} </p>)
-                    this.props.options.map((option, index) => <Option key={option} optionText={option} />)
-                }
-            </div>
-        )
-    }
+const Options = (props) => {
+    return (
+        <div>
+            <button onClick={props.deleteOptions} >Remove All</button>
+            <p>You have {props.options.length > 0 ? props.options.length : 'no'} options:</p>
+            {
+                // this.props.options.map((option, index) => <p key={option}>{option} </p>)
+                props.options.map((option, index) => <Option key={option} optionText={option} />)
+            }
+        </div>
+    )
 }
 
-class Option extends React.Component {
-    render() {
-        return (
-            <div>
-                {this.props.optionText}
-            </div>
-        )
-    }
-}
+const Option = (props) => {
+    return (
+        <div>
+            {props.optionText}
+        </div>
+    );
+};
 
 ReactDOM.render(<Indecision/>, document.getElementById('app'));

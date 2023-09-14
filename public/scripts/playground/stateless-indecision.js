@@ -127,52 +127,19 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
   }]);
   return AddOptions;
 }(React.Component);
-var Options = /*#__PURE__*/function (_React$Component3) {
-  _inherits(Options, _React$Component3);
-  var _super3 = _createSuper(Options);
-  function Options() {
-    _classCallCheck(this, Options);
-    return _super3.apply(this, arguments);
-  }
-  _createClass(Options, [{
-    key: "render",
-    value:
-    // constructor(props){
-    //     super(props);
-    //     this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
-    // }
-    // removeAll(){
-    //     console.log(this.props.options); // here, this doesn't refer to class instance
-    //     alert('removeAll');
-    // }
-    function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
-        onClick: this.props.deleteOptions
-      }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", this.props.options.length > 0 ? this.props.options.length : 'no', " options:"),
-      // this.props.options.map((option, index) => <p key={option}>{option} </p>)
-      this.props.options.map(function (option, index) {
-        return /*#__PURE__*/React.createElement(Option, {
-          key: option,
-          optionText: option
-        });
-      }));
-    }
-  }]);
-  return Options;
-}(React.Component);
-var Option = /*#__PURE__*/function (_React$Component4) {
-  _inherits(Option, _React$Component4);
-  var _super4 = _createSuper(Option);
-  function Option() {
-    _classCallCheck(this, Option);
-    return _super4.apply(this, arguments);
-  }
-  _createClass(Option, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, this.props.optionText);
-    }
-  }]);
-  return Option;
-}(React.Component);
+var Options = function Options(props) {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+    onClick: props.deleteOptions
+  }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", props.options.length > 0 ? props.options.length : 'no', " options:"),
+  // this.props.options.map((option, index) => <p key={option}>{option} </p>)
+  props.options.map(function (option, index) {
+    return /*#__PURE__*/React.createElement(Option, {
+      key: option,
+      optionText: option
+    });
+  }));
+};
+function Option(props) {
+  return React.createElement("div", null, props.optionText);
+}
 ReactDOM.render( /*#__PURE__*/React.createElement(Indecision, null), document.getElementById('app'));
