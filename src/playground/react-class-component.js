@@ -1,13 +1,19 @@
 class Indecision extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            options: []
+        };
+    }
     render() {
         const title = 'Indecision app';
         const subTitle = 'Create short decision list to choose from';
-        const options = ['first', 'second'];
+        // const options = ['first', 'second']; // takes preference
         return (
             <div>
                 <Header title={title} subTitle={subTitle} />
-                <Action/>
-                <Options options={options} />
+                <Action hasOptions={this.state.options.length > 0 } />
+                <Options options={this.state.options} />
                 <AddOptions/>
             </div>
         )
@@ -33,7 +39,8 @@ class Action extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick} >What should i do?</button>
+                <button disabled={!this.props.hasOptions} 
+                onClick={this.handleClick} >What should i do?</button>
             </div>
         )
     }
