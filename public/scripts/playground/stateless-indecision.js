@@ -61,7 +61,6 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var title = 'Indecision app';
       var subTitle = 'Create short decision list to choose from';
       // const options = ['first', 'second']; // takes preference
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
@@ -82,6 +81,9 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 var Header = function Header(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), /*#__PURE__*/React.createElement("h3", null, props.subTitle));
+};
+Header.defaultProps = {
+  title: 'Indecision App'
 };
 var Action = function Action(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
@@ -140,6 +142,6 @@ var Options = function Options(props) {
   }));
 };
 function Option(props) {
-  return React.createElement("div", null, props.optionText);
-}
+  return /*#__PURE__*/React.createElement("div", null, props.optionText);
+};
 ReactDOM.render( /*#__PURE__*/React.createElement(Indecision, null), document.getElementById('app'));

@@ -33,7 +33,6 @@ class Indecision extends React.Component {
         // console.log('add option')
     }
     render() {
-        const title = 'Indecision app';
         const subTitle = 'Create short decision list to choose from';
         // const options = ['first', 'second']; // takes preference
         return (
@@ -57,6 +56,10 @@ const Header = (props) => {
         </div>
     )
 }
+
+Header.defaultProps = {
+    title: 'Indecision App'
+};
 
 const Action = (props) => {
     return (
