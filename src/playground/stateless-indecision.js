@@ -5,7 +5,7 @@ class Indecision extends React.Component {
         this.makeDecision = this.makeDecision.bind(this);
         this.addOption = this.addOption.bind(this);
         this.state = {
-            options: ['first', 'second', 'third']
+            options: props.options
         };
     }
     deleteOptions(){
@@ -37,7 +37,7 @@ class Indecision extends React.Component {
         // const options = ['first', 'second']; // takes preference
         return (
             <div>
-                <Header title={title} subTitle={subTitle} />
+                <Header subTitle={subTitle} />
                 <Action hasOptions={this.state.options.length > 0 }
                 makeDecision={this.makeDecision} />
                 <Options options={this.state.options}
@@ -48,11 +48,15 @@ class Indecision extends React.Component {
     }
 }
 
+Indecision.defaultProps = {
+    options: []
+}
+
 const Header = (props) => {
     return (
         <div>
             <h1>{props.title}</h1>
-            <h3>{props.subTitle}</h3>
+            {props.subTitle && <h3>{props.subTitle}</h3>}
         </div>
     )
 }

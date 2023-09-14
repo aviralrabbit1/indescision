@@ -24,7 +24,7 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
     _this.addOption = _this.addOption.bind(_assertThisInitialized(_this));
     _this.state = {
-      options: ['first', 'second', 'third']
+      options: props.options
     };
     return _this;
   }
@@ -64,7 +64,6 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
       var subTitle = 'Create short decision list to choose from';
       // const options = ['first', 'second']; // takes preference
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, {
-        title: title,
         subTitle: subTitle
       }), /*#__PURE__*/React.createElement(Action, {
         hasOptions: this.state.options.length > 0,
@@ -79,8 +78,11 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
   }]);
   return Indecision;
 }(React.Component);
+Indecision.defaultProps = {
+  options: []
+};
 var Header = function Header(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), /*#__PURE__*/React.createElement("h3", null, props.subTitle));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subTitle && /*#__PURE__*/React.createElement("h3", null, props.subTitle));
 };
 Header.defaultProps = {
   title: 'Indecision App'
