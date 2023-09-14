@@ -1,9 +1,21 @@
 class Indecision extends React.Component {
     constructor(props){
         super(props);
+        this.deleteOptions = this.deleteOptions.bind(this);
+        this.makeDecision = this.makeDecision.bind(this);
         this.state = {
-            options: []
+            options: ['first', 'second', 'third']
         };
+    }
+    deleteOptions(){
+        this.setState({
+            options: []
+        });
+    }
+    makeDecision(){
+        const randomNum = Math.floor(Math.random() * this.state.options.length);
+        const option = this.state.options[randomNum];
+        console.log(option);
     }
     render() {
         const title = 'Indecision app';
@@ -12,8 +24,10 @@ class Indecision extends React.Component {
         return (
             <div>
                 <Header title={title} subTitle={subTitle} />
-                <Action hasOptions={this.state.options.length > 0 } />
-                <Options options={this.state.options} />
+                <Action hasOptions={this.state.options.length > 0 }
+                makeDecision={this.makeDecision} />
+                <Options options={this.state.options}
+                deleteOptions={this.deleteOptions} />
                 <AddOptions/>
             </div>
         )
@@ -33,14 +47,11 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-    handleClick(){
-        alert('handleClick');
-    }
     render() {
         return (
             <div>
                 <button disabled={!this.props.hasOptions} 
-                onClick={this.handleClick} >What should i do?</button>
+                onClick={this.props.makeDecision} >What should i do?</button>
             </div>
         )
     }
@@ -68,18 +79,18 @@ class AddOptions extends React.Component {
 }
 
 class Options extends React.Component {
-    constructor(props){
-        super(props);
-        this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
-    }
-    removeAll(){
-        console.log(this.props.options); // here, this doesn't refer to class instance
-        alert('removeAll');
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
+    // }
+    // removeAll(){
+    //     console.log(this.props.options); // here, this doesn't refer to class instance
+    //     alert('removeAll');
+    // }
     render() {
         return (
             <div>
-                <button onClick={this.removeAll} >Remove All</button>
+                <button onClick={this.props.deleteOptions} >Remove All</button>
                 <p>You have {this.props.options.length > 0 ? this.props.options.length : 'no'} options:</p>
                 {
                     // this.props.options.map((option, index) => <p key={option}>{option} </p>)

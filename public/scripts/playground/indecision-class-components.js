@@ -20,12 +20,28 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     var _this;
     _classCallCheck(this, Indecision);
     _this = _super.call(this, props);
+    _this.deleteOptions = _this.deleteOptions.bind(_assertThisInitialized(_this));
+    _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
     _this.state = {
-      options: []
+      options: ['first', 'second', 'third']
     };
     return _this;
   }
   _createClass(Indecision, [{
+    key: "deleteOptions",
+    value: function deleteOptions() {
+      this.setState({
+        options: []
+      });
+    }
+  }, {
+    key: "makeDecision",
+    value: function makeDecision() {
+      var randomNum = Math.floor(Math.random() * this.state.options.length);
+      var option = this.state.options[randomNum];
+      console.log(option);
+    }
+  }, {
     key: "render",
     value: function render() {
       var title = 'Indecision app';
@@ -35,9 +51,11 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
         title: title,
         subTitle: subTitle
       }), /*#__PURE__*/React.createElement(Action, {
-        hasOptions: this.state.options.length > 0
+        hasOptions: this.state.options.length > 0,
+        makeDecision: this.makeDecision
       }), /*#__PURE__*/React.createElement(Options, {
-        options: this.state.options
+        options: this.state.options,
+        deleteOptions: this.deleteOptions
       }), /*#__PURE__*/React.createElement(AddOptions, null));
     }
   }]);
@@ -67,16 +85,11 @@ var Action = /*#__PURE__*/function (_React$Component3) {
     return _super3.apply(this, arguments);
   }
   _createClass(Action, [{
-    key: "handleClick",
-    value: function handleClick() {
-      alert('handleClick');
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
         disabled: !this.props.hasOptions,
-        onClick: this.handleClick
+        onClick: this.props.makeDecision
       }, "What should i do?"));
     }
   }]);
@@ -114,24 +127,24 @@ var AddOptions = /*#__PURE__*/function (_React$Component4) {
 var Options = /*#__PURE__*/function (_React$Component5) {
   _inherits(Options, _React$Component5);
   var _super5 = _createSuper(Options);
-  function Options(props) {
-    var _this2;
+  function Options() {
     _classCallCheck(this, Options);
-    _this2 = _super5.call(this, props);
-    _this2.removeAll = _this2.removeAll.bind(_assertThisInitialized(_this2)); // resetting the context here instead of inline
-    return _this2;
+    return _super5.apply(this, arguments);
   }
   _createClass(Options, [{
-    key: "removeAll",
-    value: function removeAll() {
-      console.log(this.props.options); // here, this doesn't refer to class instance
-      alert('removeAll');
-    }
-  }, {
     key: "render",
-    value: function render() {
+    value:
+    // constructor(props){
+    //     super(props);
+    //     this.removeAll = this.removeAll.bind(this); // resetting the context here instead of inline
+    // }
+    // removeAll(){
+    //     console.log(this.props.options); // here, this doesn't refer to class instance
+    //     alert('removeAll');
+    // }
+    function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
-        onClick: this.removeAll
+        onClick: this.props.deleteOptions
       }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", this.props.options.length > 0 ? this.props.options.length : 'no', " options:"),
       // this.props.options.map((option, index) => <p key={option}>{option} </p>)
       this.props.options.map(function (option, index) {
