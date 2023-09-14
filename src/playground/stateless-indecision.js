@@ -9,6 +9,16 @@ class Indecision extends React.Component {
             options: props.options
         };
     }
+    componentDidMount(){
+        console.log('componend did mount, fetching data'); // only for class based component
+    }
+    componentDidUpdate(prevProps, prevState){
+        // we can check what changed
+        console.log('component did update, saving data (after state or props value change)');
+    }
+    componentWillUnmount(){
+        console.log('component will unmount, (when a component disappears)');
+    }
     deleteOptions(){
         this.setState(() => ({ options: [] }));
     }

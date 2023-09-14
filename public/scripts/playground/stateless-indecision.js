@@ -30,6 +30,22 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
   _createClass(Indecision, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('componend did mount, fetching data'); // only for class based component
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      // we can check what changed
+      console.log('component did update, saving data (after state or props value change)');
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      console.log('component will unmount, (when a component disappears)');
+    }
+  }, {
     key: "deleteOptions",
     value: function deleteOptions() {
       this.setState(function () {
