@@ -21,6 +21,7 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Indecision);
     _this = _super.call(this, props);
     _this.deleteOptions = _this.deleteOptions.bind(_assertThisInitialized(_this));
+    _this.deleteOption = _this.deleteOption.bind(_assertThisInitialized(_this));
     _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
     _this.addOption = _this.addOption.bind(_assertThisInitialized(_this));
     _this.state = {
@@ -31,8 +32,23 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
   _createClass(Indecision, [{
     key: "deleteOptions",
     value: function deleteOptions() {
-      this.setState({
-        options: []
+      this.setState(function () {
+        return {
+          options: []
+        };
+      });
+    }
+  }, {
+    key: "deleteOption",
+    value: function deleteOption(option) {
+      var _this2 = this;
+      // console.log(option);
+      this.setState(function () {
+        return {
+          options: _this2.state.options.filter(function (optionToRemove) {
+            return optionToRemove !== option;
+          })
+        };
       });
     }
   }, {
@@ -70,7 +86,8 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
         makeDecision: this.makeDecision
       }), /*#__PURE__*/React.createElement(Options, {
         options: this.state.options,
-        deleteOptions: this.deleteOptions
+        deleteOptions: this.deleteOptions,
+        deleteOption: this.deleteOption
       }), /*#__PURE__*/React.createElement(AddOptions, {
         addOption: this.addOption
       }));
@@ -97,14 +114,14 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
   _inherits(AddOptions, _React$Component2);
   var _super2 = _createSuper(AddOptions);
   function AddOptions(props) {
-    var _this2;
+    var _this3;
     _classCallCheck(this, AddOptions);
-    _this2 = _super2.call(this, props);
-    _this2.addOption = _this2.addOption.bind(_assertThisInitialized(_this2)); // binding the method
-    _this2.state = {
+    _this3 = _super2.call(this, props);
+    _this3.addOption = _this3.addOption.bind(_assertThisInitialized(_this3)); // binding the method
+    _this3.state = {
       error: undefined
     };
-    return _this2;
+    return _this3;
   }
   _createClass(AddOptions, [{
     key: "addOption",
@@ -139,11 +156,16 @@ var Options = function Options(props) {
   props.options.map(function (option, index) {
     return /*#__PURE__*/React.createElement(Option, {
       key: option,
-      optionText: option
+      optionText: option,
+      deleteOption: props.deleteOption
     });
   }));
 };
 function Option(props) {
-  return /*#__PURE__*/React.createElement("div", null, props.optionText);
+  return /*#__PURE__*/React.createElement("div", null, props.optionText, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick(e) {
+      return props.deleteOption(props.optionText);
+    }
+  }, "Delete"));
 };
 ReactDOM.render( /*#__PURE__*/React.createElement(Indecision, null), document.getElementById('app'));

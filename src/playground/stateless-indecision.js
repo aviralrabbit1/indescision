@@ -2,6 +2,7 @@ class Indecision extends React.Component {
     constructor(props){
         super(props);
         this.deleteOptions = this.deleteOptions.bind(this);
+        this.deleteOption = this.deleteOption.bind(this);
         this.makeDecision = this.makeDecision.bind(this);
         this.addOption = this.addOption.bind(this);
         this.state = {
@@ -9,9 +10,13 @@ class Indecision extends React.Component {
         };
     }
     deleteOptions(){
-        this.setState({
-            options: []
-        });
+        this.setState(() => ({ options: [] }));
+    }
+    deleteOption(option){
+        // console.log(option);
+        this.setState(() => ({
+            options: this.state.options.filter((optionToRemove) => optionToRemove!== option)
+        }))
     }
     makeDecision(){
         const randomNum = Math.floor(Math.random() * this.state.options.length);
@@ -41,7 +46,8 @@ class Indecision extends React.Component {
                 <Action hasOptions={this.state.options.length > 0 }
                 makeDecision={this.makeDecision} />
                 <Options options={this.state.options}
-                deleteOptions={this.deleteOptions} />
+                deleteOptions={this.deleteOptions}
+                deleteOption={this.deleteOption} />
                 <AddOptions addOption={this.addOption} />
             </div>
         )
@@ -87,11 +93,7 @@ class AddOptions extends React.Component {
         const option = e.target.elements.option.value.trim();
         const error = this.props.addOption(option);
         
-        this.setState(() => {
-            return {
-                error
-            };
-        });
+        this.setState(() => ({ error }));
     }
     render() {
         return (
@@ -113,16 +115,20 @@ const Options = (props) => {
             <p>You have {props.options.length > 0 ? props.options.length : 'no'} options:</p>
             {
                 // this.props.options.map((option, index) => <p key={option}>{option} </p>)
-                props.options.map((option, index) => <Option key={option} optionText={option} />)
+                props.options.map((option, index) => (
+                <Option key={option} optionText={option}
+                deleteOption={props.deleteOption} />
+                ))
             }
         </div>
-    )
-}
+    );
+};
 
 const Option = (props) => {
     return (
         <div>
             {props.optionText}
+            <button onClick={(e) => props.deleteOption(props.optionText)}>Delete</button>
         </div>
     );
 };
