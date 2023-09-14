@@ -22,6 +22,7 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.deleteOptions = _this.deleteOptions.bind(_assertThisInitialized(_this));
     _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
+    _this.addOption = _this.addOption.bind(_assertThisInitialized(_this));
     _this.state = {
       options: ['first', 'second', 'third']
     };
@@ -42,6 +43,22 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
       console.log(option);
     }
   }, {
+    key: "addOption",
+    value: function addOption(option) {
+      if (!option) {
+        return 'Enter valid value';
+      } else if (this.state.options.indexOf(option) > -1) {
+        return 'Option already exists!';
+      }
+      this.setState(function (prevState) {
+        // prevState.options.push(option); // will manipulate the prevState, so not good
+        return {
+          options: prevState.options.concat(option) // adds without manipulating
+        };
+      });
+      // console.log('add option')
+    }
+  }, {
     key: "render",
     value: function render() {
       var title = 'Indecision app';
@@ -56,7 +73,9 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/React.createElement(Options, {
         options: this.state.options,
         deleteOptions: this.deleteOptions
-      }), /*#__PURE__*/React.createElement(AddOptions, null));
+      }), /*#__PURE__*/React.createElement(AddOptions, {
+        addOption: this.addOption
+      }));
     }
   }]);
   return Indecision;
@@ -98,23 +117,32 @@ var Action = /*#__PURE__*/function (_React$Component3) {
 var AddOptions = /*#__PURE__*/function (_React$Component4) {
   _inherits(AddOptions, _React$Component4);
   var _super4 = _createSuper(AddOptions);
-  function AddOptions() {
+  function AddOptions(props) {
+    var _this2;
     _classCallCheck(this, AddOptions);
-    return _super4.apply(this, arguments);
+    _this2 = _super4.call(this, props);
+    _this2.addOption = _this2.addOption.bind(_assertThisInitialized(_this2)); // binding the method
+    _this2.state = {
+      error: undefined
+    };
+    return _this2;
   }
   _createClass(AddOptions, [{
     key: "addOption",
     value: function addOption(e) {
       e.preventDefault();
       var option = e.target.elements.option.value.trim();
-      if (option) {
-        alert('option');
-      }
+      var error = this.props.addOption(option);
+      this.setState(function () {
+        return {
+          error: error
+        };
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
+      return /*#__PURE__*/React.createElement("div", null, this.state.error && /*#__PURE__*/React.createElement("p", null, this.state.error, " "), /*#__PURE__*/React.createElement("form", {
         onSubmit: this.addOption
       }, /*#__PURE__*/React.createElement("input", {
         type: "text",
