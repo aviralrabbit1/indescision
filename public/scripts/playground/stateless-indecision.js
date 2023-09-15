@@ -32,13 +32,24 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
   _createClass(Indecision, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var json = localStorage.getItem('options');
+      var options = JSON.parse(json);
+      this.setState(function () {
+        return {
+          options: options
+        };
+      });
       console.log('componend did mount, fetching data'); // only for class based component
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       // we can check what changed
-      console.log('component did update, saving data (after state or props value change)');
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+        console.log('component did update, saving data (after state or props value change)');
+      }
     }
   }, {
     key: "componentWillUnmount",
@@ -177,7 +188,7 @@ var Options = function Options(props) {
     });
   }));
 };
-function Option(props) {
+var Option = function Option(props) {
   return /*#__PURE__*/React.createElement("div", null, props.optionText, /*#__PURE__*/React.createElement("button", {
     onClick: function onClick(e) {
       return props.deleteOption(props.optionText);

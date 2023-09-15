@@ -10,11 +10,18 @@ class Indecision extends React.Component {
         };
     }
     componentDidMount(){
+        const json = localStorage.getItem('options');
+        const options = JSON.parse(json);
+        this.setState(() => ({options})); 
         console.log('componend did mount, fetching data'); // only for class based component
     }
     componentDidUpdate(prevProps, prevState){
         // we can check what changed
-        console.log('component did update, saving data (after state or props value change)');
+        if(prevState.options.length !== this.state.options.length){
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+            console.log('component did update, saving data (after state or props value change)');
+        }
     }
     componentWillUnmount(){
         console.log('component will unmount, (when a component disappears)');
