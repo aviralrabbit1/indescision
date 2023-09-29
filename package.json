@@ -5,6 +5,9 @@
   "repository": "https://github.com/aviralrabbit1/indescision.git",
   "author": "Aviral Verma <aviral.robin@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "npx babel src/app.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react"
+  },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
     "@babel/core": "^7.22.17",
@@ -16,6 +19,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "webpack": "^5.88.2"
   }
 }

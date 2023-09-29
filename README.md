@@ -54,3 +54,8 @@ following [React 18 update](https://react.dev/blog/2022/03/08/react-18-upgrade-g
 ```sh
 yarn add react react-dom
 ```
+
+### Install webpack
+```sh
+yarn add webpack
+```
