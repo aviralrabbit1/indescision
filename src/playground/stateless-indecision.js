@@ -12,7 +12,9 @@ class Indecision extends React.Component {
     componentDidMount(){
         const json = localStorage.getItem('options');
         const options = JSON.parse(json);
-        this.setState(() => ({options})); 
+        if(options){
+            this.setState(() => ({options})); 
+        }
         console.log('componend did mount, fetching data'); // only for class based component
     }
     componentDidUpdate(prevProps, prevState){
@@ -61,10 +63,12 @@ class Indecision extends React.Component {
             <div>
                 <Header subTitle={subTitle} />
                 <Action hasOptions={this.state.options.length > 0 }
-                makeDecision={this.makeDecision} />
+                    makeDecision={this.makeDecision} 
+                />
                 <Options options={this.state.options}
-                deleteOptions={this.deleteOptions}
-                deleteOption={this.deleteOption} />
+                    deleteOptions={this.deleteOptions}
+                    deleteOption={this.deleteOption} 
+                />
                 <AddOptions addOption={this.addOption} />
             </div>
         )
@@ -111,6 +115,10 @@ class AddOptions extends React.Component {
         const error = this.props.addOption(option);
         
         this.setState(() => ({ error }));
+
+        if(!error) {
+            e.target.elements.option.value = '';
+        }
     }
     render() {
         return (

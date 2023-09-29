@@ -34,11 +34,13 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var json = localStorage.getItem('options');
       var options = JSON.parse(json);
-      this.setState(function () {
-        return {
-          options: options
-        };
-      });
+      if (options) {
+        this.setState(function () {
+          return {
+            options: options
+          };
+        });
+      }
       console.log('componend did mount, fetching data'); // only for class based component
     }
   }, {
@@ -161,6 +163,9 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
           error: error
         };
       });
+      if (!error) {
+        e.target.elements.option.value = '';
+      }
     }
   }, {
     key: "render",
