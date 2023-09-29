@@ -25,7 +25,8 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
     _this.addOption = _this.addOption.bind(_assertThisInitialized(_this));
     _this.state = {
-      options: props.options
+      // options: props.options
+      options: []
     };
     return _this;
   }
@@ -116,6 +117,7 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/React.createElement(Options, {
         options: this.state.options,
         deleteOptions: this.deleteOptions,
+        hasOptions: this.state.options.length > 0,
         deleteOption: this.deleteOption
       }), /*#__PURE__*/React.createElement(AddOptions, {
         addOption: this.addOption
@@ -123,10 +125,9 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     }
   }]);
   return Indecision;
-}(React.Component);
-Indecision.defaultProps = {
-  options: []
-};
+}(React.Component); // Indecision.defaultProps = {
+//     options: []
+// }
 var Header = function Header(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subTitle && /*#__PURE__*/React.createElement("h3", null, props.subTitle));
 };
@@ -182,6 +183,7 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
 }(React.Component);
 var Options = function Options(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+    disabled: !props.hasOptions,
     onClick: props.deleteOptions
   }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", props.options.length > 0 ? props.options.length : 'no', " options:"),
   // this.props.options.map((option, index) => <p key={option}>{option} </p>)

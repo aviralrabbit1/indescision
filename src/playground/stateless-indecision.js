@@ -6,7 +6,8 @@ class Indecision extends React.Component {
         this.makeDecision = this.makeDecision.bind(this);
         this.addOption = this.addOption.bind(this);
         this.state = {
-            options: props.options
+            // options: props.options
+            options: []
         };
     }
     componentDidMount(){
@@ -67,6 +68,7 @@ class Indecision extends React.Component {
                 />
                 <Options options={this.state.options}
                     deleteOptions={this.deleteOptions}
+                    hasOptions={this.state.options.length > 0 }
                     deleteOption={this.deleteOption} 
                 />
                 <AddOptions addOption={this.addOption} />
@@ -75,9 +77,9 @@ class Indecision extends React.Component {
     }
 }
 
-Indecision.defaultProps = {
-    options: []
-}
+// Indecision.defaultProps = {
+//     options: []
+// }
 
 const Header = (props) => {
     return (
@@ -136,7 +138,7 @@ class AddOptions extends React.Component {
 const Options = (props) => {
     return (
         <div>
-            <button onClick={props.deleteOptions} >Remove All</button>
+            <button disabled={!props.hasOptions} onClick={props.deleteOptions} >Remove All</button>
             <p>You have {props.options.length > 0 ? props.options.length : 'no'} options:</p>
             {
                 // this.props.options.map((option, index) => <p key={option}>{option} </p>)
