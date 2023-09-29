@@ -59,3 +59,7 @@ yarn add react react-dom
 ```sh
 yarn add webpack
 ```
+and
+```sh
+yarn add -D webpack-cli
+``` 
