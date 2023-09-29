@@ -21,18 +21,64 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Indecision);
     _this = _super.call(this, props);
     _this.deleteOptions = _this.deleteOptions.bind(_assertThisInitialized(_this));
+    _this.deleteOption = _this.deleteOption.bind(_assertThisInitialized(_this));
     _this.makeDecision = _this.makeDecision.bind(_assertThisInitialized(_this));
     _this.addOption = _this.addOption.bind(_assertThisInitialized(_this));
     _this.state = {
-      options: props.options
+      // options: props.options
+      options: []
     };
     return _this;
   }
   _createClass(Indecision, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var json = localStorage.getItem('options');
+      var options = JSON.parse(json);
+      if (options) {
+        this.setState(function () {
+          return {
+            options: options
+          };
+        });
+      }
+      console.log('componend did mount, fetching data'); // only for class based component
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      // we can check what changed
+      if (prevState.options.length !== this.state.options.length) {
+        var json = JSON.stringify(this.state.options);
+        localStorage.setItem('options', json);
+        console.log('component did update, saving data (after state or props value change)');
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      console.log('component will unmount, (when a component disappears)');
+    }
+  }, {
     key: "deleteOptions",
     value: function deleteOptions() {
-      this.setState({
-        options: []
+      this.setState(function () {
+        return {
+          options: []
+        };
+      });
+    }
+  }, {
+    key: "deleteOption",
+    value: function deleteOption(option) {
+      var _this2 = this;
+      // console.log(option);
+      this.setState(function () {
+        return {
+          options: _this2.state.options.filter(function (optionToRemove) {
+            return optionToRemove !== option;
+          })
+        };
       });
     }
   }, {
@@ -70,17 +116,18 @@ var Indecision = /*#__PURE__*/function (_React$Component) {
         makeDecision: this.makeDecision
       }), /*#__PURE__*/React.createElement(Options, {
         options: this.state.options,
-        deleteOptions: this.deleteOptions
+        deleteOptions: this.deleteOptions,
+        hasOptions: this.state.options.length > 0,
+        deleteOption: this.deleteOption
       }), /*#__PURE__*/React.createElement(AddOptions, {
         addOption: this.addOption
       }));
     }
   }]);
   return Indecision;
-}(React.Component);
-Indecision.defaultProps = {
-  options: []
-};
+}(React.Component); // Indecision.defaultProps = {
+//     options: []
+// }
 var Header = function Header(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, props.title), props.subTitle && /*#__PURE__*/React.createElement("h3", null, props.subTitle));
 };
@@ -97,14 +144,14 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
   _inherits(AddOptions, _React$Component2);
   var _super2 = _createSuper(AddOptions);
   function AddOptions(props) {
-    var _this2;
+    var _this3;
     _classCallCheck(this, AddOptions);
-    _this2 = _super2.call(this, props);
-    _this2.addOption = _this2.addOption.bind(_assertThisInitialized(_this2)); // binding the method
-    _this2.state = {
+    _this3 = _super2.call(this, props);
+    _this3.addOption = _this3.addOption.bind(_assertThisInitialized(_this3)); // binding the method
+    _this3.state = {
       error: undefined
     };
-    return _this2;
+    return _this3;
   }
   _createClass(AddOptions, [{
     key: "addOption",
@@ -117,6 +164,9 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
           error: error
         };
       });
+      if (!error) {
+        e.target.elements.option.value = '';
+      }
     }
   }, {
     key: "render",
@@ -133,17 +183,23 @@ var AddOptions = /*#__PURE__*/function (_React$Component2) {
 }(React.Component);
 var Options = function Options(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+    disabled: !props.hasOptions,
     onClick: props.deleteOptions
   }, "Remove All"), /*#__PURE__*/React.createElement("p", null, "You have ", props.options.length > 0 ? props.options.length : 'no', " options:"),
   // this.props.options.map((option, index) => <p key={option}>{option} </p>)
   props.options.map(function (option, index) {
     return /*#__PURE__*/React.createElement(Option, {
       key: option,
-      optionText: option
+      optionText: option,
+      deleteOption: props.deleteOption
     });
   }));
 };
-function Option(props) {
-  return /*#__PURE__*/React.createElement("div", null, props.optionText);
+var Option = function Option(props) {
+  return /*#__PURE__*/React.createElement("div", null, props.optionText, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick(e) {
+      return props.deleteOption(props.optionText);
+    }
+  }, "Delete"));
 };
 ReactDOM.render( /*#__PURE__*/React.createElement(Indecision, null), document.getElementById('app'));
