@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("utils is running"),console.log("App is running"),console.log(9*9),console.log(60)})();
+(()=>{"use strict";console.log("utils is running"),console.log("App is running"),console.log(9*9),console.log(60),console.log(-20)})();
