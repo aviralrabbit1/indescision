@@ -22,6 +22,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "validator": "^13.11.0",
     "webpack": "^5.88.2"
   }
 }

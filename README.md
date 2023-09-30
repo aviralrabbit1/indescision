@@ -63,3 +63,8 @@ and
 ```sh
 yarn add -D webpack-cli
 ``` 
+
+### Install validator
+```sh
+yarn add validator
+```
