@@ -12,5 +12,6 @@ console.log(validator.isEmail('test.know@gmail.com'));
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-const template = React.createElement('h2', {}, 'heading 2');
+// const template = React.createElement('h2', {}, 'heading 2');
+const template = <h2>JSX from webpack</h2>
 ReactDOM.render(template, document.getElementById('app'));

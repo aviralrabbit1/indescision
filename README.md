@@ -68,3 +68,18 @@ yarn add -D webpack-cli
 ```sh
 yarn add validator
 ```
+
+### Install babel-loader
+```sh
+yarn add babel-loader
+```
+
+### .babelrc file setup
+```json
+{
+    "presets": [
+        "@babel/env",
+        "@babel/react"
+    ]
+}
+```

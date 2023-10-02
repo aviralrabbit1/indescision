@@ -13,5 +13,6 @@ console.log((0, _utils.square)(9));
 console.log((0, _utils.add)(20, 40));
 console.log((0, _utils["default"])(50, 70));
 console.log(_validator["default"].isEmail('test.know@gmail.com'));
-var template = /*#__PURE__*/_react["default"].createElement('h2', {}, 'heading 2');
+// const template = React.createElement('h2', {}, 'heading 2');
+var template = /*#__PURE__*/_react["default"].createElement("h2", null, "JSX from webpack");
 _reactDom["default"].render(template, document.getElementById('app'));
