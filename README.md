@@ -68,3 +68,40 @@ yarn add -D webpack-cli
 ```sh
 yarn add validator
 ```
+
+### Install babel-loader
+```sh
+yarn add babel-loader
+```
+
+### `webpack.config.js` file setup
+```js
+// Entry point -> output
+const path = require('path');
+
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/, // files ending in .js
+            exclude: /node_modules/
+        }]
+    }
+};
+
+```
+
+### `.babelrc` file setup
+```json
+{
+    "presets": [
+        "@babel/env",
+        "@babel/react"
+    ]
+}
+```
