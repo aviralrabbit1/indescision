@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AddOption from '../components/AddOption'
+import Option from '../components/Option'
 
 class Indecision extends React.Component {
     constructor(props){
@@ -121,15 +122,6 @@ const Options = (props) => {
                 deleteOption={props.deleteOption} />
                 ))
             }
-        </div>
-    );
-};
-
-const Option = (props) => {
-    return (
-        <div>
-            {props.optionText}
-            <button onClick={(e) => props.deleteOption(props.optionText)}>Delete</button>
         </div>
     );
 };
