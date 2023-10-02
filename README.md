@@ -105,3 +105,50 @@ module.exports = {
     ]
 }
 ```
+
+### Devtool
+It is a string property in webpack which controls if and how source maps are generated.
+```json
+// weback.config.js
+module.exports = {
+    ...
+    devtool: 'eval-cheap-module-source-map'
+    ...
+};
+```
+
+### webpack-dev-server
+```sh
+yarn add webpack-dev-server --save-dev
+```
+
+Configure the `webpack.config.js`
+```json
+module.exports = {
+    ...
+    mode: 'development',
+    devtool: 'eval-cheap-module-source-map',
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+      },
+    ...
+};
+```
+
+and the `package.json`,
+```json
+  {
+    ...
+        "scripts": {
+        "build": "webpack",
+        "serve": "webpack serve",
+        "build-watch": "webpack --watch",
+        "build-babel": "npx babel src/app.js --watch --out-file public/scripts/app.js --presets=@babel/preset-env,@babel/preset-react",
+        "dev-server": "webpack-dev-server"
+    },
+  ...
+  }
+```

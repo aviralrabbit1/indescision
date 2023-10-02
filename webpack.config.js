@@ -13,5 +13,13 @@ module.exports = {
             test: /\.js$/, // files ending in .js
             exclude: /node_modules/
         }]
-    }
+    },
+    mode: 'development',
+    devtool: 'eval-cheap-module-source-map',
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+      },
 };
