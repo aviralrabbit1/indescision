@@ -1,3 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AddOption from '../components/AddOption';
+import Option from '../components/Option';
+import Header from '../components/Header';
+import Action from '../components/Action';
+
 class Indecision extends React.Component {
     constructor(props){
         super(props);
@@ -81,60 +88,6 @@ class Indecision extends React.Component {
 //     options: []
 // }
 
-const Header = (props) => {
-    return (
-        <div>
-            <h1>{props.title}</h1>
-            {props.subTitle && <h3>{props.subTitle}</h3>}
-        </div>
-    )
-}
-
-Header.defaultProps = {
-    title: 'Indecision App'
-};
-
-const Action = (props) => {
-    return (
-        <div>
-            <button disabled={!props.hasOptions} 
-            onClick={props.makeDecision} >What should i do?</button>
-        </div>
-    )
-}
-
-class AddOptions extends React.Component {
-    constructor(props){
-        super(props);
-        this.addOption = this.addOption.bind(this); // binding the method
-        this.state = {
-            error: undefined
-        };
-    }
-    addOption(e){
-        e.preventDefault();
-        const option = e.target.elements.option.value.trim();
-        const error = this.props.addOption(option);
-        
-        this.setState(() => ({ error }));
-
-        if(!error) {
-            e.target.elements.option.value = '';
-        }
-    }
-    render() {
-        return (
-            <div>
-                { this.state.error && <p>{this.state.error} </p> }
-                <form onSubmit={this.addOption}>
-                    <input type="text" name="option" />
-                    <button>Add Options</button>
-                </form>
-            </div>
-        )
-    }
-}
-
 const Options = (props) => {
     return (
         <div>
@@ -147,15 +100,6 @@ const Options = (props) => {
                 deleteOption={props.deleteOption} />
                 ))
             }
-        </div>
-    );
-};
-
-const Option = (props) => {
-    return (
-        <div>
-            {props.optionText}
-            <button onClick={(e) => props.deleteOption(props.optionText)}>Delete</button>
         </div>
     );
 };
