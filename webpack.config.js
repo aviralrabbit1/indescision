@@ -14,5 +14,12 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    devtool: 'eval-cheap-module-source-map'
+    devtool: 'eval-cheap-module-source-map',
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'public'),
+        },
+        compress: true,
+        port: 6000,
+      },
 };

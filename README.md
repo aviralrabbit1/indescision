@@ -106,7 +106,7 @@ module.exports = {
 }
 ```
 
-## Devtool
+### Devtool
 It is a string property in webpack which controls if and how source maps are generated.
 ```json
 // weback.config.js
@@ -115,4 +115,9 @@ module.exports = {
     devtool: 'eval-cheap-module-source-map'
     ...
 };
+```
+
+### webpack-dev-server
+```sh
+yarn add webpack-dev-server --save-dev
 ```
