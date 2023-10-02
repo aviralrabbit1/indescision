@@ -12,3 +12,5 @@ const Header = (props) => {
 Header.defaultProps = {
     title: 'Indecision App'
 };
+
+export default Header;
