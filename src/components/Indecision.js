@@ -5,17 +5,20 @@ import Header from './Header';
 import Action from './Action';
 
 export default class Indecision extends React.Component {
-    constructor(props){
-        super(props);
-        this.deleteOptions = this.deleteOptions.bind(this);
-        this.deleteOption = this.deleteOption.bind(this);
-        this.makeDecision = this.makeDecision.bind(this);
-        this.addOption = this.addOption.bind(this);
-        this.state = {
-            // options: props.options
-            options: []
-        };
+    state = {
+        options: []
     }
+    // constructor(props){
+    //     super(props);
+    //     this.deleteOptions = this.deleteOptions.bind(this);
+    //     this.deleteOption = this.deleteOption.bind(this);
+    //     this.makeDecision = this.makeDecision.bind(this);
+    //     this.addOption = this.addOption.bind(this);
+    //     this.state = {
+    //         // options: props.options
+    //         options: []
+    //     };
+    // }
     componentDidMount(){
         const json = localStorage.getItem('options');
         const options = JSON.parse(json);
@@ -35,21 +38,22 @@ export default class Indecision extends React.Component {
     componentWillUnmount(){
         console.log('component will unmount, (when a component disappears)');
     }
-    deleteOptions(){
+    deleteOptions = () => {
         this.setState(() => ({ options: [] }));
     }
-    deleteOption(option){
+    deleteOption = (option) => {
         // console.log(option);
         this.setState(() => ({
             options: this.state.options.filter((optionToRemove) => optionToRemove!== option)
         }))
     }
-    makeDecision(){
+    makeDecision = () => {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options[randomNum];
         console.log(option);
+        alert(option);
     }
-    addOption(option){
+    addOption = (option) => {
         if(!option){
             return 'Enter valid value';
         } else if(this.state.options.indexOf(option) > -1) {

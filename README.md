@@ -152,3 +152,8 @@ and the `package.json`,
   ...
   }
 ```
+
+### To transform class properties,
+```sh
+yarn add --dev @babel/plugin-transform-class-properties
+```
