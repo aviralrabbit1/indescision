@@ -59,6 +59,11 @@ export default class Indecision extends React.Component {
             selectedOption: option
         }));
     }
+    clearSelectedOption = () => {
+        this.setState(() => ({
+            selectedOption: undefined
+        }))
+    }
     addOption = (option) => {
         if(!option){
             return 'Enter valid value';
@@ -88,7 +93,9 @@ export default class Indecision extends React.Component {
                     deleteOption={this.deleteOption} 
                 />
                 <AddOptions addOption={this.addOption} />
-                <OptionModal selectedOption={this.state.selectedOption} />
+                <OptionModal 
+                selectedOption={this.state.selectedOption} 
+                clearSelectedOption={this.clearSelectedOption} />
             </div>
         )
     }
