@@ -157,3 +157,7 @@ and the `package.json`,
 ```sh
 yarn add --dev @babel/plugin-transform-class-properties
 ```
+### Third-Party component - `Modal`
+```sh
+yarn add react-modal
+```
