@@ -170,3 +170,8 @@ yarn add react-modal
 ```sh
 yarn add -D css-loader style-loader
 ```
+
+3. `sass-loader`: Loads a Sass/SCSS file and compiles it to CSS.
+```sh
+yarn add -D sass-loader sass
+```
