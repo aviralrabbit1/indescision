@@ -3,6 +3,7 @@
 var _react = _interopRequireDefault(require("react"));
 var _reactDom = _interopRequireDefault(require("react-dom"));
 var _Indecision = _interopRequireDefault(require("./components/Indecision"));
+require("./styles/styles.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 // const Layout = () => {
 //     return (

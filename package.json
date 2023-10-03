@@ -20,7 +20,9 @@
     "@babel/preset-react": "^7.22.15",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^29.7.0",
+    "css-loader": "^6.8.1",
     "regenerator-runtime": "^0.14.0",
+    "style-loader": "^3.3.3",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {

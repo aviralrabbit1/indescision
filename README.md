@@ -161,3 +161,12 @@ yarn add --dev @babel/plugin-transform-class-properties
 ```sh
 yarn add react-modal
 ```
+
+### For Styling, install
+
+1. `css-loader`: Interprets @import and url() like import/require() and will resolve them.
+2. `style-loader`: Inject CSS into the DOM.
+
+```sh
+yarn add -D css-loader style-loader
+```
