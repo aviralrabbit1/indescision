@@ -8,3 +8,10 @@ body {
     font-size: 1.6rem;
     background: $dark-grey;
 }
+
+button {
+    cursor: pointer;
+    &:disabled {
+        cursor: default;
+    }
+}
