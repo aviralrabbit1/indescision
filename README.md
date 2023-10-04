@@ -161,3 +161,27 @@ yarn add --dev @babel/plugin-transform-class-properties
 ```sh
 yarn add react-modal
 ```
+
+### For Styling, install
+
+1. `css-loader`: Interprets @import and url() like import/require() and will resolve them.
+2. `style-loader`: Inject CSS into the DOM.
+
+```sh
+yarn add -D css-loader style-loader
+```
+
+3. `sass-loader`: Loads a Sass/SCSS file and compiles it to CSS.
+```sh
+yarn add -D sass-loader sass
+```
+
+4. `node-sass`: It is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass. It allows native compilation of .scss files to css at incredible speed and automatically via a connect middleware.
+```sh
+yarn add node-sass
+```
+
+5. `normalize.css`: It makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+```sh
+yarn add normalize.css
+```
