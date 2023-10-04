@@ -1,5 +1,8 @@
+@import './base/settings';
 @import './base/base';
 @import './components/header';
+@import './components/container';
+@import './components/button';
 
 $base-color: blue;
 $base-bg-color: rgb(255, 255, 255);
