@@ -1,9 +1,8 @@
 @import './base/base';
+@import './components/header';
 
 $base-color: blue;
-$base-bg-color: yellow;
+$base-bg-color: rgb(255, 255, 255);
 
 * {
-    color: $base-color;
-    background-color: $base-bg-color;
 }
