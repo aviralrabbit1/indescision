@@ -176,7 +176,12 @@ yarn add -D css-loader style-loader
 yarn add -D sass-loader sass
 ```
 
-1. `node-sass`: It is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass. It allows native compilation of .scss files to css at incredible speed and automatically via a connect middleware.
+4. `node-sass`: It is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass. It allows native compilation of .scss files to css at incredible speed and automatically via a connect middleware.
 ```sh
 yarn add node-sass
+```
+
+5. `normalize.css`: It makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+```sh
+yarn add normalize.css
 ```
